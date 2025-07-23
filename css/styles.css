@@ -1,0 +1,150 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;   
+  color: #fff;
+  font-size: 0.9em;
+}
+
+.status-nao-iniciado { background: #6c757d; }
+.status-em-andamento { background: #ffc107; color: #000; }
+.status-programado    { background: #17a2b8; }
+.status-pendente      { background: #dc3545; }
+.status-concluido     { background: #28a745; }
+
+
+
+.btn, .btn-sm {
+  text-decoration: none;
+  background: #1976d2;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin: 2px;
+  display: inline-block;
+}
+.btn-sm {
+  font-size: 14px;
+  padding: 4px 8px;
+}
+.btn-sm.red {
+  background: #d32f2f;
+}
+.status {
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+form button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.backLink {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.backLink a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  font-size: 15px;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.backLink a:hover {
+  color: #0056b3;
+  padding-left: 5px;
+}
+
