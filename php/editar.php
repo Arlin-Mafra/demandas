@@ -1,59 +1,68 @@
 <?php
 include 'db.php';
+include 'header.php';
+
 $id = $_GET['id'];
 $stmt = $db->prepare("SELECT * FROM demandas WHERE id = ?");
 $stmt->execute([$id]);
 $d = $stmt->fetch();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Editar Demanda</title>
-  <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Editar Demanda</h2>
-        <form action="atualizar.php" method="POST">
-            <input type="hidden" name="id" value="<?= $d['id'] ?>">
-            <label>Demanda:</label><br>
-            <input type="text" name="demanda" value="<?= $d['demanda'] ?>" required><br><br>
 
-            <label>Descrição:</label><br>
-            <textarea name="descricao"><?= $d['descricao'] ?></textarea><br><br>
+<h2 class="mb-4">Editar Demanda</h2>
 
-            <label>Responsável:</label><br>
-            <input type="text" name="responsavel" value="<?= $d['responsavel'] ?>"><br><br>
+<form action="atualizar.php" method="POST" class="row g-3">
+  <input type="hidden" name="id" value="<?= $d['id'] ?>">
 
-            <label>Status:</label><br>
-            <select name="status">
-            <?php
-            $statuses = ['Não iniciado','Em andamento','Programado','Pendente','Concluído'];
-            foreach ($statuses as $s) {
-                $selected = $s == $d['status'] ? "selected" : "";
-                echo "<option $selected>$s</option>";
-            }
-            ?>
-            </select><br><br>
+  <div class="col-md-6">
+    <label class="form-label">Demanda:</label>
+    <input type="text" name="demanda" class="form-control" value="<?= $d['demanda'] ?>" required>
+  </div>
 
-            <label>Prioridade:</label><br>
-            <select name="prioridade">
-            <?php
-            $prioridades = ['Alta','Média','Baixa'];
-            foreach ($prioridades as $p) {
-                $selected = $p == $d['prioridade'] ? "selected" : "";
-                echo "<option $selected>$p</option>";
-            }
-            ?>
-            </select><br><br>
+  <div class="col-md-12">
+    <label class="form-label">Descrição:</label>
+    <textarea name="descricao" class="form-control" rows="3"><?= $d['descricao'] ?></textarea>
+  </div>
 
-            <label>Previsão:</label><br>
-            <input type="text" name="previsao" value="<?= $d['previsao'] ?>"><br><br>
+  <div class="col-md-6">
+    <label class="form-label">Responsável:</label>
+    <input type="text" name="responsavel" class="form-control" value="<?= $d['responsavel'] ?>">
+  </div>
 
-            <button type="submit">Atualizar</button>
-        </form>
-        
-        <p class="backLink"><a href="../index.php">← Ver demandas</a></p>
-    </div>
-</body>
-</html>
+  <div class="col-md-6">
+    <label class="form-label">Status:</label>
+    <select name="status" class="form-select">
+      <?php
+      $statuses = ['Não iniciado','Em andamento','Programado','Pendente','Concluído'];
+      foreach ($statuses as $s) {
+        $selected = $s == $d['status'] ? "selected" : "";
+        echo "<option $selected>$s</option>";
+      }
+      ?>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Prioridade:</label>
+    <select name="prioridade" class="form-select">
+      <?php
+      $prioridades = ['Alta','Média','Baixa'];
+      foreach ($prioridades as $p) {
+        $selected = $p == $d['prioridade'] ? "selected" : "";
+        echo "<option $selected>$p</option>";
+      }
+      ?>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Previsão:</label>
+    <input type="text" name="previsao" class="form-control" value="<?= $d['previsao'] ?>">
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+    <a href="../index.php" class="btn btn-secondary">← Ver demandas</a>
+  </div>
+</form>
+
+<?php include 'footer.php'; ?>
