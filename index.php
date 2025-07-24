@@ -1,4 +1,6 @@
-<?php include 'php/db.php'; ?>
+<?php include 'php/db.php'; 
+include 'php/header.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <?php
@@ -7,9 +9,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
 
-<?php include 'php/header.php'; ?>
-
     <h1 class="mb-4">📋 Demandas FLUIG</h1>
+    <a href="php/exportar_planilha.php" class="btn btn-outline-primary mb-3" target="_blank">📄 Exportar para Excel</a>
+
 
     <a href="php/cadastrar.php" class="btn btn-primary mb-3">+ Nova Demanda</a>
 
@@ -17,6 +19,7 @@ error_reporting(E_ALL);
       <table class="table table-bordered table-hover table-sm align-middle">
         <thead class="table-light">
           <tr>
+            <th>ID</th>
             <th>Demanda</th>
             <th>Descrição</th>
             <th>Responsável</th>
@@ -31,6 +34,7 @@ error_reporting(E_ALL);
           $stmt = $db->query("SELECT * FROM demandas ORDER BY prioridade DESC, status");
           foreach ($stmt as $row) {
             echo "<tr>
+              <td>{$row['id']}</td>
               <td>{$row['demanda']}</td>
               <td>{$row['descricao']}</td>
               <td>{$row['responsavel']}</td>
